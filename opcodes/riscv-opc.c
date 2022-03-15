@@ -198,6 +198,17 @@ match_srxi_as_c_srxi (const struct riscv_opcode *op, insn_t insn)
 const struct riscv_opcode riscv_opcodes[] =
 {
 /* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
+{"sw_active_or",          0, INSN_CLASS_I, "d,s,j",    MATCH_SW_ACTIVE_OR, MASK_SW_ACTIVE_OR, match_opcode, 0 },
+{"sw_active_and",          0, INSN_CLASS_I, "d,s,j",    MATCH_SW_ACTIVE_AND, MASK_SW_ACTIVE_AND, match_opcode, 0 },
+{"sw_active_xor",          0, INSN_CLASS_I, "d,s,j",    MATCH_SW_ACTIVE_XOR, MASK_SW_ACTIVE_XOR, match_opcode, 0 },
+{"sw_active_none",          0, INSN_CLASS_I, "d,s,j",    MATCH_SW_ACTIVE_NONE, MASK_SW_ACTIVE_NONE, match_opcode, 0 },
+{"sw_active_max",          0, INSN_CLASS_I, "d,s,j",    MATCH_SW_ACTIVE_MAX, MASK_SW_ACTIVE_MAX, match_opcode, 0 },
+{"sw_active_min",          0, INSN_CLASS_I, "d,s,j",    MATCH_SW_ACTIVE_MIN, MASK_SW_ACTIVE_MIN, match_opcode, 0 },
+{"lw_mask_and",          0, INSN_CLASS_I, "d,s,t,j",    MATCH_LW_MASK_AND, MASK_LW_MASK_AND, match_opcode, 0 },
+{"lw_or",          0, INSN_CLASS_I, "d,s,t,j",    MATCH_LW_OR, MASK_LW_OR, match_opcode, 0 },
+{"lw_xor",          0, INSN_CLASS_I, "d,s,t,j",    MATCH_LW_XOR, MASK_LW_XOR, match_opcode, 0 },
+{"lw_min",          0, INSN_CLASS_I, "d,s,t,j",    MATCH_LW_MIN, MASK_LW_MIN, match_opcode, 0 },
+{"lw_max",          0, INSN_CLASS_I, "d,s,t,j",    MATCH_LW_MAX, MASK_LW_MAX, match_opcode, 0 },
 {"unimp",       0, INSN_CLASS_C,   "",  0, 0xffffU,  match_opcode, INSN_ALIAS },
 {"unimp",       0, INSN_CLASS_I,   "",  MATCH_CSRRW | (CSR_CYCLE << OP_SH_CSR), 0xffffffffU,  match_opcode, 0 }, /* csrw cycle, x0 */
 {"ebreak",      0, INSN_CLASS_C,   "",  MATCH_C_EBREAK, MASK_C_EBREAK, match_opcode, INSN_ALIAS },
